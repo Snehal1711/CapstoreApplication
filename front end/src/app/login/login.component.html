@@ -1,0 +1,76 @@
+<!-- <div class="col-md-4 offset-md-4 mt-5 card card-body">
+    <h4 class="alert text-alert">{{message}}</h4>
+    <form #loginForm="ngForm" (ngSubmit)=login(loginForm)>
+        <h3 class="border-bottom">Login Here</h3>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" #email="ngModel" ngModel
+            class="form-control" placeholder="Enter Email here" required >
+            <div *ngIf='email.touched && email.invalid'>
+                <p class="text text-danger" *ngIf='email.errors.required'>
+                    this field is required
+                </p>
+                <p class="text text-danger" *ngIf='email.errors.email'>
+                    Only Email
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" #password="ngModel" ngModel
+            class="form-control" placeholder="Enter Password here" required >
+            <div *ngIf='password.touched && password.invalid'>
+                <p class="text text-danger" *ngIf='password.errors.required'>
+                    this field is required
+                </p>
+            </div>
+        </div>
+        <div class="float-left">
+            <a class="nav-link" routerLink="/forgot-password">Forgot Password</a>
+       </div>
+        <div class="float-right">
+            <button type="submit" class="btn btn-primary" [disabled]='loginForm.invalid'>Login</button>
+       </div>
+    </form>
+</div> -->
+<div class="limit">
+    <div class="login-container">
+        <div class="alert alert-danger" *ngIf='message'>{{message}}</div>
+        <div class="bb-login">
+            <form class="bb-form validate-form" #loginForm ='ngForm' (ngSubmit)='login(loginForm)'> <span class="bb-form-title p-b-26"> Welcome </span> <span class="bb-form-title p-b-48"> <i class="mdi mdi-symfony"></i> </span>
+                <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                     <input class="input100" type="email" name="email" #email='ngModel' ngModel 
+                     pattern="[^@]*@[a-zA-Z]+(.com)" required > 
+                     <span class="bbb-input" data-placeholder="Email"></span> 
+                     <div *ngIf='email.touched && email.invalid'>
+                        <p class="alert text-danger" *ngIf='email.errors.required'>
+                            *This field is mandatory
+                        </p>
+                        <p class="alert text-danger" *ngIf='email.errors.pattern'>
+                            *Enter valid email
+                        </p>
+                    </div>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Enter password"> <span class="btn-show-pass"> 
+                    <i class="mdi mdi-eye show_password"></i> </span> 
+                    <input class="input100" type="password" name="password" #password='ngModel' ngModel
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$" required> 
+                    <span class="bbb-input" data-placeholder="Password"></span> 
+                    <div *ngIf='password.touched && password.invalid'>
+                        <p class="alert text-danger" *ngIf='password.errors.required'>
+                            *This field is mandatory
+                        </p>
+                        <p class="alert text-danger" *ngIf='password.errors.pattern'>
+                            it should contain atleast one uppercase, one lowercase, one digit</p>
+                    </div>
+                </div>
+                <div class="login-container-form-btn">
+                    <div class="bb-login-form-btn">
+                        <div class="bb-form-bgbtn"></div> <button class="bb-form-btn" [disabled]='loginForm.invalid'> Login </button>
+                    </div>
+                </div>
+                <div class="text-center p-t-115"> <a class="txt2" routerLink="/forgot-password">Forgot Password?</a> </div>
+            </form>
+        </div>
+    </div>
+</div>
